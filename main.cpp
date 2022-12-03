@@ -1,4 +1,4 @@
-#include <time.h>
+ #include <time.h>
 #include <iostream>
 #include <unistd.h>
 int main(int __ac, char *__av[]){
@@ -10,19 +10,13 @@ int main(int __ac, char *__av[]){
 		return (std::cout << "Bad commit message" << std::endl, 1);
 	if (system("git add .") != 0 )
 		return (std::cout << "< git add > command failed>" << std::endl, 1);
-	sleep(200);
+	std::cout << "Successfully added" << std::endl;
 	std::string __commit_command = "git commit -m \"(chore) : " + __commit_message + " \"";
-	__start = clock();
 	if (system (__commit_command.c_str()) != 0 )
 		return (std::cout << "<git commit> command failed" << std::endl, 1);
-	__end = clock();
-	sleep(__end - __start);
-	__start = clock();
+	std::cout << "Successfully commited" << std::endl;
 	if (system("git push origin master") != 0 )
 		return (std::cout << "<git push> command failed" << std::endl, 1);
-
-	__end = clock();
-	sleep(__end - __start);
 	std::cout << "Push complited successfully" << std::endl;
 	return (0);
 }
