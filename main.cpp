@@ -4,7 +4,7 @@
 #define BGRN "\e[1;32m"
 #define COLOR_RESET "\e[0m"
 #define BRED "\e[1;31m"
-int main(int __ac, char *__av[]){
+int main(int __ac, char *__av[]) {
 	clock_t __start, __end;
 	if (__ac != 2)
 		return (std::cout << BRED << "Bad argument" << COLOR_RESET << std::endl, 1);
